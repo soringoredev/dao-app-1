@@ -16,11 +16,11 @@ public class StudentDAOImplementation implements StudentDAO {
     public StudentDAOImplementation(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-    // comentariu
+
     @Override
     @Transactional
     public void save(Student theStudent) {
-
+        entityManager.persist(theStudent);
     }
 
 }
