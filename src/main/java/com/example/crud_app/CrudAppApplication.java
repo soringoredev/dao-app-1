@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CrudAppApplication {
 
@@ -21,8 +23,10 @@ public class CrudAppApplication {
 		return runner -> {
 			//createStudent(studentDAO);
 			//createMultipleStudents(studentDAO);
+			//readStudent(studentDAO);
 
-			readStudent(studentDAO);
+			queryForStudents(studentDAO);
+
 
 		};
 	}
@@ -73,6 +77,15 @@ public class CrudAppApplication {
 
 		// afiseaza detaliile studentului
 		System.out.println("Found the student: " + myStudent);
+	}
+
+	private void queryForStudents(StudentDAO studentDAO) {
+
+		List<Student> theStudents = studentDAO.findAll();
+
+		for (Student newStudent : theStudents) {
+			System.out.println(newStudent);
+		}
 	}
 
 
