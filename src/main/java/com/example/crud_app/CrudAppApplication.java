@@ -14,13 +14,15 @@ public class CrudAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudAppApplication.class, args);
 	}
-	
+
 
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			//createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+			//createMultipleStudents(studentDAO);
+
+			readStudent(StudentDAO);
 
 		};
 	}
@@ -50,6 +52,10 @@ public class CrudAppApplication {
 		studentDAO.save(newStudent1);
 		studentDAO.save(newStudent2);
 		studentDAO.save(newStudent3);
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+		// roadmap
 	}
 
 
