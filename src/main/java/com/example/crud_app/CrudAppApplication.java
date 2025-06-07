@@ -2,6 +2,7 @@ package com.example.crud_app;
 
 import com.example.crud_app.dao.StudentDAO;
 import com.example.crud_app.entity.Student;
+import jakarta.persistence.EntityManager;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,8 +27,9 @@ public class CrudAppApplication {
 			//readStudent(studentDAO);
 			//queryForStudents(studentDAO);
 			//queryForStudentsByLastName(studentDAO);
+			//updateStudent(studentDAO);
 
-			updateStudent(studentDAO);
+			deleteStudent(studentDAO);
 
 
 
@@ -113,6 +115,18 @@ public class CrudAppApplication {
 		studentDAO.update(newStudent);
 
 		System.out.println("Update student: " + newStudent);
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+
+		int studentId = 5;
+
+		System.out.println("Deleting student id: " + studentId);
+
+		studentDAO.delete(studentId);
+
+
+
 	}
 
 
