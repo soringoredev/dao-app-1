@@ -23,10 +23,13 @@ public class CrudAppApplication {
 		return runner -> {
 			//createStudent(studentDAO);
 			//createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
+			//readStudent(studentDAO);
 			//queryForStudents(studentDAO);
-
 			//queryForStudentsByLastName(studentDAO);
+
+			updateStudent(studentDAO);
+
+
 
 		};
 	}
@@ -49,7 +52,7 @@ public class CrudAppApplication {
 		System.out.println("Creating 3 student objects");
 		Student newStudent1 = new Student("Andrei", "Munteanu", "andrei@gmail.com");
 		Student newStudent2 = new Student("Iulian", "Vatamanu", "iulic@gmail.com");
-		Student newStudent3 = new Student("Maria", "Mirabel", "maria@gmail.com");
+		Student newStudent3 = new Student("Maria", "Mirabela", "maria@gmail.com");
 
 		//salvam obiectele student in baza de date
 		System.out.println("Saving the students");
@@ -96,6 +99,20 @@ public class CrudAppApplication {
 			System.out.println(newStudent);
 		}
 
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+
+		int studentId = 5;
+		System.out.println("Getting student with id: " + studentId);
+		Student newStudent = studentDAO.findById(studentId);
+
+		System.out.println("Updating student ...");
+		newStudent.setFirstName("Vadim");
+
+		studentDAO.update(newStudent);
+
+		System.out.println("Update student: " + newStudent);
 	}
 
 
