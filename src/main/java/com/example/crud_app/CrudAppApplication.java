@@ -123,7 +123,13 @@ public class CrudAppApplication {
 
 		System.out.println("Deleting student id: " + studentId);
 
-		studentDAO.delete(studentId);
+		Student student = studentDAO.findById(studentId);
+		if (student != null) {
+			System.out.println("Deleting student id: " + studentId);
+			studentDAO.delete(studentId);
+		} else {
+			System.out.println("Student with id " + studentId + " does not exist.");
+		}
 
 
 
