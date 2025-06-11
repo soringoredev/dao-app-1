@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class StudentDAOImplementation implements StudentDAO {
+public class StudentDAOImplementation implements StudentDAO, AccountingInterface {
 
 
     private EntityManager entityManager;
